@@ -1,0 +1,55 @@
+body {
+    background-color: darkgoldenrod;
+}
+
+header {
+    text-align: center;
+    background-color: coral;
+    margin-bottom: 50px;
+    border-bottom: blue 8px solid;
+    padding: 50px;
+}
+
+.hour {
+    padding: 20px;
+    text-align: center;
+    background-color: lightcoral;
+    font-size: larger;
+    font-weight: 600;
+    border-radius: 25px;
+    border: black 1px solid;
+}
+
+.saveBtn {
+    text-align: center;
+    background-color: blueviolet;
+    color: deeppink;
+    font-size: larger;
+    font-weight: 600;
+    border-radius: 25px;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.col-md-9 {
+    background-color: deepskyblue;
+    border-radius: 25px;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+.past-time {
+    background-color: grey;
+}
+
+.current-time {
+    background-color: hotpink;
+}
+
+.hide-btn {
+    display: none;
+}
