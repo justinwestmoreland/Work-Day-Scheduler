@@ -1,19 +1,15 @@
-body {
-    background-color: darkgoldenrod;
-}
-
 header {
+    background-color: lightgrey;
     text-align: center;
-    background-color: coral;
     margin-bottom: 50px;
-    border-bottom: blue 8px solid;
-    padding: 50px;
+    border-bottom: black 8px solid;
+    padding: 20px;
 }
 
 .hour {
     padding: 20px;
     text-align: center;
-    background-color: lightcoral;
+    background-color: lightblue;
     font-size: larger;
     font-weight: 600;
     border-radius: 25px;
@@ -22,8 +18,8 @@ header {
 
 .saveBtn {
     text-align: center;
-    background-color: blueviolet;
-    color: deeppink;
+    background-color: lightblue;
+    color: black;
     font-size: larger;
     font-weight: 600;
     border-radius: 25px;
@@ -32,7 +28,7 @@ header {
 }
 
 .col-md-9 {
-    background-color: deepskyblue;
+    background-color: lightblue;
     border-radius: 25px;
     border: black 1px solid;
     padding: 10px;
@@ -43,11 +39,12 @@ header {
 }
 
 .past-time {
-    background-color: grey;
+    background-color: lightgrey;
+    color: white;
 }
 
 .current-time {
-    background-color: hotpink;
+    background-color: lightgreen;
 }
 
 .hide-btn {

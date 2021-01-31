@@ -20,21 +20,12 @@ $(".row").each(function() {
     var pastTime = $(this).attr("id");
 
     if (currentTime > pastTime) {
-        $(this).find("textarea").addClass("past-time");
+        $(this).children().addClass("past-time");
         $(this).find("textarea").prop("disabled", true);
         $(this).find("button").addClass("hide-btn");
     } else if (currentTime == pastTime) {
-        $(this).find("textarea").addClass("current-time");
+        $(this).children().addClass("current-time");
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -49,6 +40,13 @@ $(".saveBtn").on("click", function() {
     window.localStorage.setItem(timeOfDay, tasks);
 })
 
+
+$("#0 .col-md-9").val(localStorage.getItem("0"));
+$("#1 .col-md-9").val(localStorage.getItem("1"));
+$("#2 .col-md-9").val(localStorage.getItem("2"));
+$("#3 .col-md-9").val(localStorage.getItem("3"));
+$("#4 .col-md-9").val(localStorage.getItem("4"));
+$("#5 .col-md-9").val(localStorage.getItem("5"));
 $("#6 .col-md-9").val(localStorage.getItem("6"));
 $("#7 .col-md-9").val(localStorage.getItem("7"));
 $("#8 .col-md-9").val(localStorage.getItem("8"));
@@ -61,3 +59,9 @@ $("#14 .col-md-9").val(localStorage.getItem("14"));
 $("#15 .col-md-9").val(localStorage.getItem("15"));
 $("#16 .col-md-9").val(localStorage.getItem("16"));
 $("#17 .col-md-9").val(localStorage.getItem("17"));
+$("#18 .col-md-9").val(localStorage.getItem("18"));
+$("#19 .col-md-9").val(localStorage.getItem("19"));
+$("#20 .col-md-9").val(localStorage.getItem("20"));
+$("#21 .col-md-9").val(localStorage.getItem("21"));
+$("#22 .col-md-9").val(localStorage.getItem("22"));
+$("#23 .col-md-9").val(localStorage.getItem("23"));
