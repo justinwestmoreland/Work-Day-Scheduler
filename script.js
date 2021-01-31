@@ -1,52 +1,42 @@
+// Set CurrentDate so it could be displayed at the top of the page.
 var currentDate = moment().format('dddd MMMM Do YYYY');
-
-// set the time and the date at the top of the page when the page opens. 
 $(".current-day").text(currentDate);
 
-// time blocks should change color when either past, present, or future
-// this will require the need to grab the current hour or current time
-// this will also need to check each time block on the page to see if it's past, present, or fuuture
 
-
-// user will input information onto the calendar and this info will need to be saved locally and printed to the screen. 
-// make sure the data saves when the save button is hit
-// set row text based on what has been saved into local storage by the user
-
-
-
+// Using moment.js I set a time variable equal to the value of the current hour to compare to past and future times
 var currentTime = moment().hours();
 
-$(".row").each(function() {
-    var pastTime = $(this).attr("id");
+// This line of code calls the function findTime on each row in my code, setting and changing attributes as defined in the below logic.
+$(".row").each(findTime)
 
-    if (currentTime > pastTime) {
+// This function takes the current time as defined above and compares it to the time tasks are to be completed. Task times are idenfied by their #id. 
+// if the current time is greater than the task time, the save button is removed, the task and time boxes turn grey, and the text is changed to white. In addtion 
+// to this the <textarea> is also disabled so you are unable to continue adding to the list for times that have passed. 
+
+// if the current time is equal to the task time, the styling is changed. Otherwise the table has default styling. 
+function findTime() {
+    var taskTime = $(this).attr("id");
+
+    if (currentTime > taskTime) {
         $(this).children().addClass("past-time");
         $(this).find("textarea").prop("disabled", true);
         $(this).find("button").addClass("hide-btn");
-    } else if (currentTime == pastTime) {
+    } else if (currentTime == taskTime) {
         $(this).children().addClass("current-time");
     }
+}
 
+// The Save button when clicked will call the function saveTasks
+$(".saveBtn").on("click", saveTasks);
 
-
-})
-
-
-
-
-$(".saveBtn").on("click", function() {
+// When the save button is clicked, all values will be saved to their corresponding #id within local storage.
+function saveTasks() {
     var tasks = $(this).siblings(".col-md-9").val().trim();
     var timeOfDay = $(this).parent().attr("id");
     window.localStorage.setItem(timeOfDay, tasks);
-})
+}
 
-
-$("#0 .col-md-9").val(localStorage.getItem("0"));
-$("#1 .col-md-9").val(localStorage.getItem("1"));
-$("#2 .col-md-9").val(localStorage.getItem("2"));
-$("#3 .col-md-9").val(localStorage.getItem("3"));
-$("#4 .col-md-9").val(localStorage.getItem("4"));
-$("#5 .col-md-9").val(localStorage.getItem("5"));
+// When the page is refreshed, all local data will remain attached to it's #id
 $("#6 .col-md-9").val(localStorage.getItem("6"));
 $("#7 .col-md-9").val(localStorage.getItem("7"));
 $("#8 .col-md-9").val(localStorage.getItem("8"));
@@ -60,8 +50,3 @@ $("#15 .col-md-9").val(localStorage.getItem("15"));
 $("#16 .col-md-9").val(localStorage.getItem("16"));
 $("#17 .col-md-9").val(localStorage.getItem("17"));
 $("#18 .col-md-9").val(localStorage.getItem("18"));
-$("#19 .col-md-9").val(localStorage.getItem("19"));
-$("#20 .col-md-9").val(localStorage.getItem("20"));
-$("#21 .col-md-9").val(localStorage.getItem("21"));
-$("#22 .col-md-9").val(localStorage.getItem("22"));
-$("#23 .col-md-9").val(localStorage.getItem("23"));
