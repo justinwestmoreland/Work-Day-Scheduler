@@ -1,5 +1,5 @@
 // Set CurrentDate so it could be displayed at the top of the page.
-var currentDate = moment().format('dddd MMMM Do YYYY');
+var currentDate = moment().format('dddd, MMMM Do YYYY');
 $(".current-day").text(currentDate);
 
 
@@ -7,7 +7,7 @@ $(".current-day").text(currentDate);
 var currentTime = moment().hours();
 
 // This line of code calls the function findTime on each row in my code, setting and changing attributes as defined in the below logic.
-$(".row").each(findTime)
+$(".row").each(findTime);
 
 // This function takes the current time as defined above and compares it to the time tasks are to be completed. Task times are idenfied by their #id. 
 // if the current time is greater than the task time, the save button is removed, the task and time boxes turn grey, and the text is changed to white. In addtion 
@@ -28,6 +28,7 @@ function findTime() {
 
 // The Save button when clicked will call the function saveTasks
 $(".saveBtn").on("click", saveTasks);
+$(".clearBtn").on("click", clearTasks);
 
 // When the save button is clicked, all values will be saved to their corresponding #id within local storage.
 function saveTasks() {
@@ -35,6 +36,12 @@ function saveTasks() {
     var timeOfDay = $(this).parent().attr("id");
     window.localStorage.setItem(timeOfDay, tasks);
 }
+
+function clearTasks() {
+    window.localStorage.clear();
+    location.reload();
+}
+
 
 // When the page is refreshed, all local data will remain attached to it's #id
 $("#6 .col-md-9").val(localStorage.getItem("6"));
